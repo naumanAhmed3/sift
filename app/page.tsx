@@ -14,35 +14,47 @@ export default async function Home() {
 
   return (
     <div className="min-h-screen">
-      <header className="border-b border-edge-soft">
-        <div className="max-w-5xl mx-auto px-6 py-5 flex items-center gap-3">
-          <span className="grid place-items-center w-9 h-9 rounded-lg bg-brand/15 ring-1 ring-brand/30 text-brand">
-            <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M3 5h18l-7 8.5V20l-4 1.5v-8z" />
-            </svg>
+      {/* Masthead */}
+      <header className="border-b border-line">
+        <div className="max-w-4xl mx-auto px-7 h-16 flex items-baseline gap-4">
+          <span className="font-display text-[26px] font-semibold tracking-[-0.02em] leading-none self-center">
+            Sift
           </span>
-          <div>
-            <h1 className="font-semibold tracking-tight leading-tight">Sift</h1>
-            <p className="text-[11.5px] text-neutral-500 leading-tight">
-              hybrid retrieval on Postgres + pgvector
-            </p>
-          </div>
+          <span className="hidden sm:block font-display italic text-[15px] text-muted self-center">
+            hybrid retrieval, made legible
+          </span>
           {stats && (
-            <span className="ml-auto text-[11px] font-mono text-neutral-600 hidden sm:block">
-              {stats.total} documents · HNSW + full-text indexed
+            <span className="ml-auto self-center font-mono text-[11px] uppercase tracking-[0.14em] text-muted">
+              {stats.total} documents indexed
             </span>
           )}
         </div>
       </header>
 
-      <main className="max-w-5xl mx-auto px-6 py-8">
-        {dbError || !stats ? (
-          <p className="rounded-lg bg-red-500/10 ring-1 ring-red-500/25 px-4 py-3 text-sm text-red-300">
-            Could not reach the database. Check the DATABASE_URL configuration.
+      <main className="max-w-4xl mx-auto px-7">
+        {/* Hero */}
+        <section className="pt-14 pb-9 rise">
+          <h1 className="font-display text-[40px] sm:text-[52px] leading-[1.05] tracking-[-0.025em] font-semibold max-w-2xl">
+            Search that
+            <br />
+            shows its <span className="italic text-accent">work</span>.
+          </h1>
+          <p className="mt-5 text-[15px] leading-relaxed text-muted max-w-xl">
+            Vector, keyword, and hybrid retrieval over one corpus on Postgres
+            and pgvector — returned with the exact SQL, the query plan, and the
+            latency behind every result.
           </p>
-        ) : (
-          <SearchConsole stats={stats} />
-        )}
+        </section>
+
+        <div className="pb-20">
+          {dbError || !stats ? (
+            <p className="rounded-md bg-card border border-line px-5 py-4 text-[14px] text-accent">
+              Could not reach the database. Check the DATABASE_URL configuration.
+            </p>
+          ) : (
+            <SearchConsole stats={stats} />
+          )}
+        </div>
       </main>
     </div>
   );
