@@ -1,26 +1,31 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-ink: #0a0c10;
+  --color-surface: #12161c;
+  --color-surface-2: #181d25;
+  --color-edge: #252b35;
+  --color-edge-soft: #1b212a;
+  --color-brand: #22d3ee;
+  --color-vec: #818cf8;
+  --color-kw: #fbbf24;
+  --font-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html, body {
+  margin: 0;
+  background: var(--color-ink);
+  color: #e6e9ee;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
+* { scrollbar-width: thin; scrollbar-color: #252b35 transparent; }
+*::-webkit-scrollbar { width: 8px; height: 8px; }
+*::-webkit-scrollbar-thumb { background: #252b35; border-radius: 4px; }
+a { color: inherit; }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+@keyframes sf-fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+.sf-fade { animation: sf-fade 0.3s ease-out both; }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+@keyframes sf-spin { to { transform: rotate(360deg); } }
+.sf-spin { animation: sf-spin 0.7s linear infinite; }
