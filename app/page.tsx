@@ -34,7 +34,7 @@ export default async function Home() {
       <main className="max-w-4xl mx-auto px-7">
         {/* Hero */}
         <section className="pt-14 pb-9 rise">
-          <h1 className="font-display text-[40px] sm:text-[52px] leading-[1.05] tracking-[-0.025em] font-semibold max-w-2xl">
+          <h1 className="font-display text-[33px] sm:text-[52px] leading-[1.07] sm:leading-[1.05] tracking-[-0.025em] font-semibold max-w-2xl">
             Search that
             <br />
             shows its <span className="italic text-accent">work</span>.

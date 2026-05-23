@@ -114,7 +114,7 @@ export function SearchConsole({ stats }: { stats: CorpusStats }) {
       </form>
 
       {/* Mode tabs + filters */}
-      <div className="mt-6 flex items-end gap-7 border-b border-line">
+      <div className="mt-6 flex flex-wrap items-end gap-x-6 gap-y-2 border-b border-line">
         {MODES.map((m) => (
           <button
             key={m.id}
@@ -131,7 +131,7 @@ export function SearchConsole({ stats }: { stats: CorpusStats }) {
             {m.label}
           </button>
         ))}
-        <div className="ml-auto flex items-center gap-3 pb-2.5 text-[12px]">
+        <div className="ml-auto flex items-center gap-3 pb-2.5 text-[12px] min-w-0">
           <Select
             value={category}
             onChange={(v) => {
@@ -192,7 +192,7 @@ export function SearchConsole({ stats }: { stats: CorpusStats }) {
       {/* Results */}
       {result && (
         <section className="mt-9">
-          <div className="flex items-baseline gap-4 pb-3 border-b border-line">
+          <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1 pb-3 border-b border-line">
             <h2 className="font-display text-[20px] tracking-[-0.01em]">
               {result.hits.length} result{result.hits.length === 1 ? '' : 's'}
             </h2>
